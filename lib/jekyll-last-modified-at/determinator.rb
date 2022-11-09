@@ -16,7 +16,7 @@ module Jekyll
       attr_reader :site_source, :page_path, :use_git_cache
       attr_accessor :format
 
-      def initialize(site_source, page_path, format = nil, use_git_cache = true, first_time = true) # rubocop:disable Style/OptionalBooleanParameter
+      def initialize(site_source, page_path, format = nil, use_git_cache = true, first_time = false) # rubocop:disable Style/OptionalBooleanParameter
         @site_source   = site_source
         @page_path     = page_path
         @format        = format || '%d-%b-%y'
@@ -70,6 +70,14 @@ module Jekyll
           last_commit_date.nil? || last_commit_date.empty? ? mtime(absolute_path_to_article) : last_commit_date
         else
           mtime(absolute_path_to_article)
+        end
+      end
+
+      def to_i
+        if @first_time
+          @to_i ||= first_modified_at_unix.to_i
+        else
+          @to_i ||= last_modified_at_unix.to_i
         end
       end
 

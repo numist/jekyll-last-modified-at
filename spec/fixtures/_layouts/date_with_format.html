@@ -3,7 +3,7 @@
     <title>date-with-format</title>
   </head>
   <body>
-    <span class="last-modified-at">Article created on {% page.date | date: %Y:%B:%A:%d %}</span>
+    <span class="last-modified-at">Article created on {% page.date | date: "%Y:%B:%A:%d" %}</span>
 
     {{ content }}
   </body>

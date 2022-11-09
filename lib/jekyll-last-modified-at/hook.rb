@@ -6,10 +6,10 @@ module Jekyll
       def self.add_determinator_proc
         proc { |item|
           format = item.site.config.dig('last-modified-at', 'date-format')
-          use_git_cache = item.site.config.dig('last-modified-at', 'use-git-cache')
+          use_git_cache = item.site.config.dig('last-modified-at', 'use-git-cache') != false
           item.data['last_modified_at'] = Determinator.new(item.site.source, item.relative_path,
                                                            format, use_git_cache)
-          if item.site.config.dig('last-modified-at', 'set-page-date')
+          if item.site.config.dig('last-modified-at', 'set-page-date') != false
             # The "date" field will be converted to a string first by Jekyll and it must be
             # in the format given below: https://jekyllrb.com/docs/variables/#page-variables
             item.data['date'] = Determinator.new(item.site.source, item.relative_path,

@@ -70,7 +70,7 @@ module Jekyll
             '--format="%ct"',
             '--',
             path
-          ).split("\n")[-1][/\d+/]
+          )&.split("\n")&[-1]&[/\d+/]
         end
       end
 
