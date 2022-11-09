@@ -14,7 +14,7 @@ module Jekyll
       attr_reader :site_source, :page_path, :use_git_cache
       attr_accessor :format
 
-      def initialize(site_source, page_path, format = nil, use_git_cache = false) # rubocop:disable Style/OptionalBooleanParameter
+      def initialize(site_source, page_path, format = nil, use_git_cache = true) # rubocop:disable Style/OptionalBooleanParameter
         @site_source   = site_source
         @page_path     = page_path
         @format        = format || '%d-%b-%y'
