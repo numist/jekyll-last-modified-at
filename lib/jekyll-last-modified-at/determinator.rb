@@ -28,7 +28,6 @@ module Jekyll
         return PATH_CACHE[page_path] unless PATH_CACHE[page_path].nil?
 
         PATH_CACHE[page_path] = Time.at(last_modified_at_unix.to_i)
-        PATH_CACHE[page_path]
       end
 
       def last_modified_at_unix
