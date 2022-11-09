@@ -85,14 +85,14 @@ To format such a time, you'll need to rely on Liquid's `date` filter:
 
 ## `page.date`
 
-Additionally, you can have this plugin automatically set a default `date` value on every page based on when the file was **first** commited in git. To enable this, set `set-page-date` to `true` in your config yaml:
+Additionally, this plugin automatically sets a default `date` value on every page based on when the file was **first** commited in git. To disable this, set `set-page-date` to `false` in your config yaml:
 
  ```yml
 plugins:
   - jekyll-last-modified-at
 
 last-modified-at:
-    set-page-date: true
+    set-page-date: false
 ```
 
 If a post's date is already set via [the filename](https://jekyllrb.com/docs/posts/#creating-posts) or a page's date is set in its [frontmatter](https://jekyllrb.com/docs/variables/#page-variables), those values will override the value provided by this plugin. If a git date isn't available, `ctime` is used.
